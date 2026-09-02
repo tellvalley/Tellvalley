@@ -126,7 +126,7 @@ export default function Footer() {
                 ))}
               </div>
             </div>
-            <div className="content-stretch flex flex-col gap-[14px] items-end relative shrink-0 w-[258px]">
+            <div className="content-stretch flex flex-col gap-[14px] items-start md:items-end relative shrink-0 w-[258px] max-w-full">
               <div className="[word-break:break-word] content-stretch flex gap-[10px] items-start leading-[0] relative shrink-0 text-[16px] whitespace-nowrap">
                 <div className="flex flex-col font-['Manrope'] font-semibold justify-center relative shrink-0 text-[color:var(--pricolor-orange,#ff5c22)]">
                   <p className="leading-[normal]">/</p>
@@ -135,7 +135,7 @@ export default function Footer() {
                   <p className="leading-[normal]">Follow us on</p>
                 </div>
               </div>
-              <div className="content-stretch flex flex-col gap-[5px] items-end relative shrink-0 w-full">
+              <div className="content-stretch flex flex-col gap-[5px] items-start md:items-end relative shrink-0 w-full">
                 {SOCIALS.map(([label, href, Icon]) => (
                   <a
                     key={label}
