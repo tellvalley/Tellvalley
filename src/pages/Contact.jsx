@@ -2,6 +2,7 @@ import { useState } from "react";
 import Nav from "../components/Nav.jsx";
 import Footer from "../components/Footer.jsx";
 import Reveal from "../components/Reveal.jsx";
+import Select from "../components/Select.jsx";
 import { ChevronRight, InstagramIcon, TikTokIcon, XIcon, LinkedInIcon, YoutubeIcon } from "../components/icons.jsx";
 import { SERVICES } from "../data/services.js";
 import img011 from "../assets/services/services-img011.png";
@@ -100,7 +101,7 @@ export default function Contact() {
                 </div>
                 <label className="flex flex-col gap-[8px]">
                   <span className="font-['Manrope'] font-extralight text-[12px] text-[rgba(255,255,255,0.7)]">What are you interested in?</span>
-                  <select value={form.service} onChange={update("service")} className={`${fieldClasses} cursor-pointer`}>
+                  <Select value={form.service} onChange={update("service")} className="w-full" selectClassName={`${fieldClasses} cursor-pointer`}>
                     <option value="" className="bg-[#1c1c1c]">
                       Select a service
                     </option>
@@ -112,7 +113,7 @@ export default function Contact() {
                     <option value="Something else" className="bg-[#1c1c1c]">
                       Something else
                     </option>
-                  </select>
+                  </Select>
                 </label>
                 <label className="flex flex-col gap-[8px]">
                   <span className="font-['Manrope'] font-extralight text-[12px] text-[rgba(255,255,255,0.7)]">Message</span>

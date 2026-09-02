@@ -3,6 +3,7 @@ import Nav from "../components/Nav.jsx";
 import Footer from "../components/Footer.jsx";
 import Reveal from "../components/Reveal.jsx";
 import CaseStudyCard from "../components/CaseStudyCard.jsx";
+import Select from "../components/Select.jsx";
 import { CASE_STUDIES } from "../data/caseStudies.js";
 import img011 from "../assets/services/services-img011.png";
 
@@ -13,17 +14,18 @@ function FilterSelect({ label, value, onChange, options }) {
   return (
     <label className="flex flex-col gap-[8px] items-start">
       <span className="font-['Manrope'] font-extralight text-[12px] text-[rgba(255,255,255,0.7)]">{label}</span>
-      <select
+      <Select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="bg-transparent border border-[rgba(255,255,255,0.3)] rounded-[8px] px-[14px] py-[10px] font-['Manrope'] text-[14px] text-white cursor-pointer transition-colors duration-300 hover:border-[color:var(--pricolor-orange,#ff5c22)] focus:outline-none focus:border-[color:var(--pricolor-orange,#ff5c22)] min-w-[180px]"
+        className="min-w-[180px]"
+        selectClassName="bg-transparent border border-[rgba(255,255,255,0.3)] rounded-[8px] pl-[14px] py-[10px] font-['Manrope'] text-[14px] text-white cursor-pointer transition-colors duration-300 hover:border-[color:var(--pricolor-orange,#ff5c22)] focus:outline-none focus:border-[color:var(--pricolor-orange,#ff5c22)]"
       >
         {options.map((opt) => (
           <option key={opt} value={opt} className="bg-[#1c1c1c] text-white">
             {opt}
           </option>
         ))}
-      </select>
+      </Select>
     </label>
   );
 }
