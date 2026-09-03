@@ -41,12 +41,12 @@ export default function Services() {
           <span className="font-['Manrope'] font-semibold text-[color:var(--pricolor-orange,#ff5c22)]">/</span>
           <span className="font-['Manrope'] font-extralight text-white">Services</span>
         </div>
-        <h1 className="font-['Manrope'] font-normal text-[28px] md:text-[36px] leading-[1.25]">
+        <h1 className="font-['Manrope'] font-normal text-[28px] md:text-[36px] leading-[1.25] text-balance">
           <span className="text-[rgba(255,255,255,0.7)]">{`We don't just close the knowledge gap or offer services...`}</span>
           <br />
           <span className="text-white">We drive measurable impact results.</span>
         </h1>
-        <p className="font-['Manrope'] font-extralight text-[16px] text-[rgba(255,255,255,0.7)] max-w-[700px]">
+        <p className="font-['Manrope'] font-extralight text-[16px] text-[rgba(255,255,255,0.7)] max-w-[700px] text-pretty">
           Whether you want to learn with us or hire us this is here is how our creative pipeline approach and process is clearly defined.
         </p>
       </Reveal>
@@ -92,7 +92,7 @@ export default function Services() {
       <section className="relative max-w-[1348px] mx-auto px-6 md:px-[82px] pb-[160px] flex flex-col gap-[80px] md:gap-[140px]">
         <Reveal as="div" className="flex flex-col md:flex-row md:items-center md:justify-between gap-[24px]">
           <Eyebrow>Our process</Eyebrow>
-          <p className="font-['Manrope'] font-normal text-[28px] md:text-[36px] text-[rgba(255,255,255,0.7)] leading-[1.25] max-w-[1055px]">
+          <p className="font-['Manrope'] font-normal text-[28px] md:text-[36px] text-[rgba(255,255,255,0.7)] leading-[1.25] max-w-[1055px] text-pretty">
             Our proven approach blends research, strategy, and design, guiding every step to build brands that resonate, engage, and deliver meaningful, measurable results.
           </p>
         </Reveal>
