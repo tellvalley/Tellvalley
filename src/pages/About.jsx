@@ -54,7 +54,6 @@ import imgVector32 from "../assets/about/about-imgVector32.svg";
 import imgVector33 from "../assets/about/about-imgVector33.svg";
 import imgVector34 from "../assets/about/about-imgVector34.svg";
 import imgVector35 from "../assets/about/about-imgVector35.svg";
-import imgLine1 from "../assets/about/about-imgLine1.svg";
 
 const THREE_SIXTY_VECTORS = [
   [imgVector, "8.97% 8.9% 38.66% 60.03%"], [imgVector1, "9.63% 41.56% 38.71% 28.29%"],
@@ -182,7 +181,7 @@ export default function About() {
                 suffix={stat.suffix}
                 className="font-['Manrope'] font-light text-[64px] text-white leading-[44.8px] transition-colors duration-300 group-hover:text-[color:var(--pricolor-orange,#ff5c22)]"
               />
-              <div className="h-px w-[120px]"><img alt="" className="block w-full" src={imgLine1} /></div>
+              <div className="h-px w-[120px] bg-[rgba(255,255,255,0.15)]" />
               <p className="font-['Manrope'] font-extralight text-[16px] text-white">{stat.label}</p>
               <p className="font-['Manrope'] font-extralight text-[10px] text-white">{stat.sub}</p>
             </div>
@@ -231,7 +230,7 @@ export default function About() {
                     <span className="font-['Manrope'] font-regular text-[12px] text-white">{String(i + 1).padStart(2, "0")}</span>
                     <span className="font-['Manrope'] font-extralight text-[16px] text-white transition-colors duration-300 group-hover:text-[color:var(--pricolor-orange,#ff5c22)]">{item}</span>
                   </div>
-                  {i < group.items.length - 1 && <div className="h-px w-full"><img alt="" className="block w-full" src={imgLine1} /></div>}
+                  {i < group.items.length - 1 && <div className="h-px w-full bg-[rgba(255,255,255,0.15)]" />}
                 </div>
               ))}
             </div>
