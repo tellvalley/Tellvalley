@@ -3,7 +3,6 @@ import Footer from "../components/Footer.jsx";
 import Reveal from "../components/Reveal.jsx";
 import { SERVICES } from "../data/services.js";
 import img011 from "../assets/services/services-img011.png";
-import imgLine1 from "../assets/services/services-imgLine1.svg";
 
 const WHAT_WE_DO = [
   { title: "Agency", items: ["Product Design", "Website Design & Development", "Consultancy", "Media Production", "Documentary Production"] },
@@ -79,11 +78,7 @@ export default function Services() {
                 </div>
               </div>
             </div>
-            {i < SERVICES.length - 1 && (
-              <div className="h-px w-full">
-                <img alt="" className="block w-full" src={imgLine1} />
-              </div>
-            )}
+            {i < SERVICES.length - 1 && <div className="h-px w-full bg-[rgba(255,255,255,0.15)]" />}
           </div>
         ))}
       </Reveal>
@@ -108,7 +103,7 @@ export default function Services() {
                     <span className="font-['Manrope'] font-normal text-[12px] text-white">{String(i + 1).padStart(2, "0")}</span>
                     <span className="font-['Manrope'] font-extralight text-[16px] text-white transition-colors duration-300 group-hover:text-[color:var(--pricolor-orange,#ff5c22)]">{item}</span>
                   </div>
-                  {i < group.items.length - 1 && <div className="h-px w-full"><img alt="" className="block w-full" src={imgLine1} /></div>}
+                  {i < group.items.length - 1 && <div className="h-px w-full bg-[rgba(255,255,255,0.15)]" />}
                 </div>
               ))}
             </div>

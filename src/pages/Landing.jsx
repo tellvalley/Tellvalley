@@ -3,6 +3,7 @@ import Footer from "../components/Footer.jsx";
 import Reveal from "../components/Reveal.jsx";
 import Marquee from "../components/Marquee.jsx";
 import CaseStudyCard from "../components/CaseStudyCard.jsx";
+import { ArrowUpRight } from "../components/icons.jsx";
 import { CASE_STUDIES } from "../data/caseStudies.js";
 import img011 from "../assets/landing/landing-img011.png";
 import imgGroup from "../assets/landing/landing-imgGroup.svg";
@@ -44,8 +45,6 @@ import imgVector33 from "../assets/landing/landing-imgVector33.svg";
 import imgVector34 from "../assets/landing/landing-imgVector34.svg";
 import imgVector35 from "../assets/landing/landing-imgVector35.svg";
 import imgSonvisageLogo12 from "../assets/landing/landing-imgSonvisageLogo12.svg";
-import imgFrame from "../assets/landing/landing-imgFrame.svg";
-import imgLine1 from "../assets/landing/landing-imgLine1.svg";
 
 const THREE_SIXTY_VECTORS = [
   [imgVector, "8.97% 8.9% 38.66% 60.03%"],
@@ -213,7 +212,7 @@ export default function Landing() {
                   <div className="flex flex-1 flex-col gap-[20px] items-start w-full min-w-0">
                     <div className="flex items-start justify-between w-full">
                       <p className="font-['Manrope'] font-light text-[24px] text-white whitespace-nowrap transition-colors duration-300 group-hover:text-[color:var(--pricolor-orange,#ff5c22)]">{item.title}</p>
-                      <img alt="" className="size-[24px] shrink-0 transition-transform duration-300 ease-out group-hover:rotate-45" src={imgFrame} />
+                      <ArrowUpRight className="size-[24px] shrink-0 text-[#e3e3e3] transition-transform duration-300 ease-out group-hover:rotate-45" />
                     </div>
                     <div className="font-['Manrope'] font-light text-[16px] text-[rgba(255,255,255,0.7)]">
                       {item.body.map((line, li) => (
@@ -222,11 +221,7 @@ export default function Landing() {
                     </div>
                   </div>
                 </div>
-                {i < EXPERIENCE.length - 1 && (
-                  <div className="h-px w-full">
-                    <img alt="" className="block w-full" src={imgLine1} />
-                  </div>
-                )}
+                {i < EXPERIENCE.length - 1 && <div className="h-px w-full bg-[rgba(255,255,255,0.15)]" />}
               </div>
             ))}
           </Reveal>

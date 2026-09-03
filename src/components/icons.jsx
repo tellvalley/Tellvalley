@@ -6,6 +6,17 @@ export function ChevronRight({ className }) {
   );
 }
 
+export function ArrowUpRight({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M6.29425 17.6443L5.25 16.6L15.0905 6.75H6.14425V5.25H17.6443V16.75H16.1443V7.80375L6.29425 17.6443Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
 export function InstagramIcon({ className }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
