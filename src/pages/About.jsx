@@ -2,6 +2,7 @@ import Nav from "../components/Nav.jsx";
 import Footer from "../components/Footer.jsx";
 import Reveal from "../components/Reveal.jsx";
 import Counter from "../components/Counter.jsx";
+import Marquee from "../components/Marquee.jsx";
 import img011 from "../assets/about/about-img011.png";
 import imgRectangle6 from "../assets/about/about-imgRectangle6.png";
 import imgRectangle7 from "../assets/about/about-imgRectangle7.png";
@@ -128,15 +129,13 @@ export default function About() {
           <span className="font-['Manrope'] font-semibold text-[color:var(--pricolor-orange,#ff5c22)]">/</span>
           <span className="font-['Manrope'] font-extralight text-white">About Us</span>
         </div>
-        <h1 className="font-['Manrope'] font-normal text-[32px] text-white leading-[44.8px]">
+        <h1 className="font-['Manrope'] font-normal text-[32px] text-white leading-[44.8px] text-balance">
           A specialist design agency
-          <br />
-          and tech academy
+          <br className="hidden md:block" />
+          {" "}and tech academy
         </h1>
-        <p className="font-['Manrope'] font-extralight text-[16px] text-white max-w-[600px]">
-          {`We are an efficient team of creatives - closing the Knowledge Gap in Tech & Design.`}
-          <br />
-          We breathe from the stories we share and hope those stories create magic at the seams.
+        <p className="font-['Manrope'] font-extralight text-[16px] text-white max-w-[600px] text-balance">
+          {`We are an efficient team of creatives - closing the Knowledge Gap in Tech & Design. We breathe from the stories we share and hope those stories create magic at the seams.`}
         </p>
       </Reveal>
 
@@ -170,7 +169,7 @@ export default function About() {
       <section className="relative max-w-[1348px] mx-auto px-6 md:px-[82px] pb-[160px] flex flex-col gap-[80px]">
         <Reveal as="div" className="flex flex-col md:flex-row md:items-center md:justify-between gap-[24px]">
           <Eyebrow>Founded in 2023 —</Eyebrow>
-          <p className="font-['Manrope'] font-normal text-[28px] md:text-[32px] text-white leading-[1.4] max-w-[1055px]">
+          <p className="font-['Manrope'] font-normal text-[28px] md:text-[32px] text-white leading-[1.4] max-w-[1055px] text-pretty">
             We work with startups, pioneers and disrupters in the space who are ready to drive growth and onboard users onchain with our strategic design expertise.
           </p>
         </Reveal>
@@ -192,7 +191,7 @@ export default function About() {
 
         <Reveal as="div" className="flex flex-col md:flex-row md:items-center md:justify-between gap-[32px]">
           <Eyebrow>Our strategic partners and clients</Eyebrow>
-          <div className="flex flex-wrap gap-[48px] md:gap-[78px] items-center">
+          <Marquee gap={78} speed={40} className="flex-1 min-w-0 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="block h-[42px] w-[203px] relative grayscale opacity-80 transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:scale-[1.06]">
               <img alt="Sonvisage" className="absolute inset-0 max-w-none size-full object-contain" src={imgSonvisageLogo11} />
             </div>
@@ -208,7 +207,7 @@ export default function About() {
                 </div>
               ))}
             </div>
-          </div>
+          </Marquee>
         </Reveal>
       </section>
 
@@ -216,7 +215,7 @@ export default function About() {
       <section className="relative max-w-[1348px] mx-auto px-6 md:px-[82px] pb-[160px] flex flex-col gap-[80px] md:gap-[140px]">
         <Reveal as="div" className="flex flex-col md:flex-row md:items-center md:justify-between gap-[24px]">
           <Eyebrow>What we do</Eyebrow>
-          <p className="font-['Manrope'] font-normal text-[28px] md:text-[36px] text-[rgba(255,255,255,0.7)] leading-[1.25] max-w-[1055px]">
+          <p className="font-['Manrope'] font-normal text-[28px] md:text-[36px] text-[rgba(255,255,255,0.7)] leading-[1.25] max-w-[1055px] text-pretty">
             {`As an agency & academy consultancy, we immerse ourselves in our projects, understand clients goals, and define exactly what needs to be delivered. We scope the work, lead the process, and deliver the services below — and where specialist expertise is needed, we help bring in the right partners to make sure nothing slows you down.`}
           </p>
         </Reveal>

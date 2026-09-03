@@ -52,10 +52,10 @@ export default function Contact() {
           <span className="font-['Manrope'] font-semibold text-[color:var(--pricolor-orange,#ff5c22)]">/</span>
           <span className="font-['Manrope'] font-extralight text-white">Contact Us</span>
         </div>
-        <h1 className="font-['Manrope'] font-normal text-[28px] md:text-[36px] text-white leading-[1.25]">
+        <h1 className="font-['Manrope'] font-normal text-[28px] md:text-[36px] text-white leading-[1.25] text-balance">
           Let&rsquo;s build something together.
         </h1>
-        <p className="font-['Manrope'] font-extralight text-[16px] text-[rgba(255,255,255,0.7)] max-w-[600px]">
+        <p className="font-['Manrope'] font-extralight text-[16px] text-[rgba(255,255,255,0.7)] max-w-[600px] text-pretty">
           Tell us a bit about your project and what you&rsquo;re trying to solve — we&rsquo;ll get back to you within a couple of business days.
         </p>
       </Reveal>

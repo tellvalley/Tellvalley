@@ -124,15 +124,13 @@ export default function Landing() {
             <span className="font-['Manrope'] font-semibold text-[color:var(--pricolor-orange,#ff5c22)]">/</span>
             <span className="font-['Manrope'] font-extralight text-white">Lead</span>
           </div>
-          <h1 className="font-['Manrope'] font-normal text-[32px] text-white leading-[44.8px]">
+          <h1 className="font-['Manrope'] font-normal text-[32px] text-white leading-[44.8px] text-balance">
             A specialist design agency
-            <br />
-            and tech academy
+            <br className="hidden md:block" />
+            {" "}and tech academy
           </h1>
-          <p className="font-['Manrope'] font-normal text-[20px] text-white leading-[28px]">
-            {`We are an efficient team of creatives - closing the Knowledge Gap in Tech & Design.`}
-            <br />
-            We breathe from the stories we share and hope those stories create magic at the seams.
+          <p className="font-['Manrope'] font-normal text-[20px] text-white leading-[28px] text-balance">
+            {`We are an efficient team of creatives - closing the Knowledge Gap in Tech & Design. We breathe from the stories we share and hope those stories create magic at the seams.`}
           </p>
         </Reveal>
       </section>
@@ -151,8 +149,8 @@ export default function Landing() {
         <Reveal as="div" className="flex flex-col md:flex-row md:items-center md:justify-between gap-[24px]">
           <Eyebrow>Our Experience</Eyebrow>
           <div className="font-['Manrope'] font-normal text-[28px] md:text-[36px] leading-[1.25] max-w-[1055px]">
-            <p className="text-[rgba(255,255,255,0.7)]">{`Our solutions & products are driven by real world problems.`}</p>
-            <p className="text-white">Clear, focused, and senior-led, helping teams move from idea to adoption without friction.</p>
+            <p className="text-[rgba(255,255,255,0.7)] text-pretty">{`Our solutions & products are driven by real world problems.`}</p>
+            <p className="text-white text-pretty">Clear, focused, and senior-led, helping teams move from idea to adoption without friction.</p>
           </div>
         </Reveal>
 
@@ -199,8 +197,8 @@ export default function Landing() {
           <Reveal as="div" className="flex flex-col md:flex-row md:items-center md:justify-between gap-[24px] w-full">
             <Eyebrow>How can we help you</Eyebrow>
             <div className="font-['Manrope'] font-normal text-[28px] md:text-[36px] leading-[1.25] max-w-[1055px]">
-              <p className="text-[rgba(255,255,255,0.7)]">{`We don't just close the knowledge gap or offer services...`}</p>
-              <p className="text-white">We drive measurable impact results.</p>
+              <p className="text-[rgba(255,255,255,0.7)] text-pretty">{`We don't just close the knowledge gap or offer services...`}</p>
+              <p className="text-white text-pretty">We drive measurable impact results.</p>
             </div>
           </Reveal>
 

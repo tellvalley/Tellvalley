@@ -65,7 +65,7 @@ export default function CaseStudies() {
             <span className="font-['Manrope'] font-semibold text-[color:var(--pricolor-orange,#ff5c22)]">/</span>
             <span className="font-['Manrope'] font-extralight text-white">Case Studies</span>
           </div>
-          <h1 className="font-['Manrope'] font-normal text-[28px] md:text-[36px] text-white leading-[1.25]">
+          <h1 className="font-['Manrope'] font-normal text-[28px] md:text-[36px] text-white leading-[1.25] text-balance">
             See how we&rsquo;ve helped brands and communities move from idea to impact.
           </h1>
         </div>

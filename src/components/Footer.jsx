@@ -1,8 +1,6 @@
-import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, InstagramIcon, TikTokIcon, XIcon, LinkedInIcon, YoutubeIcon } from "./icons.jsx";
 import Reveal from "./Reveal.jsx";
-import { gsap } from "../lib/gsapSetup.js";
 import { SERVICES } from "../data/services.js";
 
 const SOCIALS = [
@@ -13,48 +11,13 @@ const SOCIALS = [
   ["Youtube", "https://www.youtube.com/@tellvalley", YoutubeIcon],
 ];
 
-function Watermark() {
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return undefined;
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        el,
-        { y: 60 },
-        {
-          y: -20,
-          ease: "none",
-          scrollTrigger: {
-            trigger: el,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 0.6,
-          },
-        }
-      );
-    }, ref);
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <p
-      ref={ref}
-      className="[word-break:break-word] flex flex-col font-['Manrope'] font-bold justify-center leading-[0] text-[clamp(80px,20vw,285px)] text-[rgba(255,255,255,0.05)] text-center whitespace-nowrap mt-[60px] select-none pointer-events-none leading-[normal]"
-    >
-      Tellvalley
-    </p>
-  );
-}
-
 export default function Footer() {
   return (
-    <div className="relative w-full">
-      <div className="bg-gradient-to-t from-[18.474%] from-[rgba(255,92,34,0.58)] overflow-clip to-[#141414] to-[73.789%] w-full pt-[94px] pb-[91.5px] relative">
+    <div className="relative w-full overflow-clip bg-gradient-to-b from-[#c34605] from-[5%] via-[#1a1a1a] via-[55%] to-[#141414] to-[100%]">
+      <div className="w-full pt-[94px] pb-[91.5px] relative">
         <Reveal as="div" stagger={0.12} className="mx-auto content-stretch flex flex-col gap-[30px] items-center w-[1348px] max-w-full px-4">
           <div className="[word-break:break-word] content-stretch flex gap-[10px] items-start leading-[0] relative shrink-0 text-[16px] whitespace-nowrap">
-            <div className="flex flex-col font-['Manrope'] font-semibold justify-center relative shrink-0 text-[color:var(--pricolor-orange,#ff5c22)]">
+            <div className="flex flex-col font-['Manrope'] font-semibold justify-center relative shrink-0 text-white">
               <p className="leading-[normal]">/</p>
             </div>
             <div className="flex flex-col font-['Manrope'] font-extralight justify-center relative shrink-0 text-white">
@@ -75,12 +38,32 @@ export default function Footer() {
             </Link>
           </div>
         </Reveal>
-        <Watermark />
       </div>
-      <div className="bg-[#141414] w-full">
+      <div className="w-full">
         <div className="mx-auto content-stretch flex flex-col gap-[60px] items-center pb-[40px] pt-[90px] px-4 w-[1368px] max-w-full">
-          <Reveal as="div" stagger={0.1} className="content-stretch flex flex-wrap items-start justify-between gap-[40px] relative shrink-0 w-full">
-            <div className="[word-break:break-word] content-stretch flex flex-col gap-[14px] items-start leading-[0] relative shrink-0 w-[258px] whitespace-nowrap">
+          <Reveal as="div" stagger={0.1} className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-start gap-[40px] relative shrink-0 w-full">
+            <div className="order-2 md:order-1 [word-break:break-word] content-stretch flex flex-col gap-[14px] items-center md:items-start leading-[0] relative shrink-0 whitespace-nowrap">
+              <div className="content-stretch flex gap-[10px] items-start relative shrink-0 text-[16px]">
+                <div className="flex flex-col font-['Manrope'] font-semibold justify-center relative shrink-0 text-[color:var(--pricolor-orange,#ff5c22)]">
+                  <p className="leading-[normal]">/</p>
+                </div>
+                <div className="flex flex-col font-['Manrope'] font-light justify-center relative shrink-0 text-white">
+                  <p className="leading-[normal]">Services</p>
+                </div>
+              </div>
+              <div className="content-stretch flex flex-col font-['Manrope'] font-normal gap-[5px] items-center md:items-start relative shrink-0 text-[14px] text-white">
+                {SERVICES.map((s) => (
+                  <Link
+                    key={s.slug}
+                    to={`/services#${s.slug}`}
+                    className="flex flex-col justify-center relative shrink-0 transition-colors duration-300 hover:text-[color:var(--pricolor-orange,#ff5c22)]"
+                  >
+                    <p className="leading-[28.8px]">{s.title}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className="order-1 md:order-2 [word-break:break-word] content-stretch flex flex-col gap-[14px] items-center leading-[0] relative w-full text-center whitespace-nowrap">
               <div className="content-stretch flex gap-[10px] items-start relative shrink-0 text-[16px]">
                 <div className="flex flex-col font-['Manrope'] font-semibold justify-center relative shrink-0 text-[color:var(--pricolor-orange,#ff5c22)]">
                   <p className="leading-[normal]">/</p>
@@ -89,7 +72,7 @@ export default function Footer() {
                   <p className="leading-[normal]">Get in touch</p>
                 </div>
               </div>
-              <div className="content-stretch flex flex-col font-['Manrope'] font-normal gap-[10px] items-start relative shrink-0 text-[24px] text-white w-full">
+              <div className="content-stretch flex flex-col font-['Manrope'] font-normal gap-[10px] items-center relative shrink-0 text-[24px] text-white w-full">
                 <a
                   className="group flex flex-col justify-center relative shrink-0"
                   href="mailto:hello@tellvalley.agency"
@@ -105,28 +88,7 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <div className="[word-break:break-word] content-stretch flex flex-col gap-[14px] items-start leading-[0] relative shrink-0 whitespace-nowrap">
-              <div className="content-stretch flex gap-[10px] items-start relative shrink-0 text-[16px]">
-                <div className="flex flex-col font-['Manrope'] font-semibold justify-center relative shrink-0 text-[color:var(--pricolor-orange,#ff5c22)]">
-                  <p className="leading-[normal]">/</p>
-                </div>
-                <div className="flex flex-col font-['Manrope'] font-light justify-center relative shrink-0 text-white">
-                  <p className="leading-[normal]">Services</p>
-                </div>
-              </div>
-              <div className="content-stretch flex flex-col font-['Manrope'] font-normal gap-[5px] items-start relative shrink-0 text-[14px] text-white">
-                {SERVICES.map((s) => (
-                  <Link
-                    key={s.slug}
-                    to={`/services#${s.slug}`}
-                    className="flex flex-col justify-center relative shrink-0 transition-colors duration-300 hover:text-[color:var(--pricolor-orange,#ff5c22)]"
-                  >
-                    <p className="leading-[28.8px]">{s.title}</p>
-                  </Link>
-                ))}
-              </div>
-            </div>
-            <div className="content-stretch flex flex-col gap-[14px] items-start md:items-end relative shrink-0 w-[258px] max-w-full">
+            <div className="order-3 content-stretch flex flex-col gap-[14px] items-center md:items-start relative shrink-0 max-w-full md:justify-self-end">
               <div className="[word-break:break-word] content-stretch flex gap-[10px] items-start leading-[0] relative shrink-0 text-[16px] whitespace-nowrap">
                 <div className="flex flex-col font-['Manrope'] font-semibold justify-center relative shrink-0 text-[color:var(--pricolor-orange,#ff5c22)]">
                   <p className="leading-[normal]">/</p>
@@ -135,7 +97,7 @@ export default function Footer() {
                   <p className="leading-[normal]">Follow us on</p>
                 </div>
               </div>
-              <div className="content-stretch flex flex-col gap-[5px] items-start md:items-end relative shrink-0 w-full">
+              <div className="content-stretch flex flex-row flex-wrap justify-center gap-[12px] items-center md:flex-col md:flex-nowrap md:justify-start md:items-start md:gap-[5px] relative shrink-0 w-full">
                 {SOCIALS.map(([label, href, Icon]) => (
                   <a
                     key={label}
@@ -143,8 +105,9 @@ export default function Footer() {
                     href={href}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={label}
                   >
-                    <div className="[word-break:break-word] flex flex-col font-['Manrope'] font-normal justify-center leading-[0] relative shrink-0 text-[14px] text-left text-white w-[66px] transition-colors duration-300 group-hover:text-[color:var(--pricolor-orange,#ff5c22)]">
+                    <div className="hidden md:flex [word-break:break-word] flex-col font-['Manrope'] font-normal justify-center leading-[0] relative shrink-0 text-[14px] text-left text-white w-[66px] transition-colors duration-300 group-hover:text-[color:var(--pricolor-orange,#ff5c22)]">
                       <p className="leading-[28.8px]">{label}</p>
                     </div>
                     <div className="relative shrink-0 size-[32px] rounded-full border border-[rgba(255,255,255,0.3)] flex items-center justify-center text-white transition-all duration-300 ease-out group-hover:border-[color:var(--pricolor-orange,#ff5c22)] group-hover:text-[color:var(--pricolor-orange,#ff5c22)] group-hover:scale-[1.1]">

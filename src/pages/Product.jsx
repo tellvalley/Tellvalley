@@ -33,8 +33,8 @@ export default function Product() {
           <span className="font-['Manrope'] font-semibold text-[color:var(--pricolor-orange,#ff5c22)]">/</span>
           <span className="font-['Manrope'] font-extralight text-white">Products</span>
         </div>
-        <h1 className="font-['Manrope'] font-normal text-[36px] md:text-[45px] text-white">Things We Built</h1>
-        <p className="font-['Manrope'] font-extralight text-[16px] text-[rgba(255,255,255,0.7)]">
+        <h1 className="font-['Manrope'] font-normal text-[36px] md:text-[45px] text-white text-balance">Things We Built</h1>
+        <p className="font-['Manrope'] font-extralight text-[16px] text-[rgba(255,255,255,0.7)] text-pretty">
           Helpful Plugins & products for our community & partners
         </p>
       </Reveal>
@@ -65,7 +65,7 @@ export default function Product() {
 
       {/* Coming soon */}
       <Reveal as="section" className="relative max-w-[1055px] mx-auto px-6 pb-[220px] text-center">
-        <p className="font-['Manrope'] font-normal text-[20px] text-white">
+        <p className="font-['Manrope'] font-normal text-[20px] text-white text-pretty">
           We are working on other <span className="italic text-[color:var(--pricolor-orange,#ff5c22)]">cool</span>{" "}
           stuffs.
           <br />

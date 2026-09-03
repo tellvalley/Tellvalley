@@ -43,7 +43,7 @@ export default function CaseStudy() {
           Back to case studies
         </Link>
         <Eyebrow>{study.tag}</Eyebrow>
-        <h1 className="font-['Manrope'] font-normal text-[28px] md:text-[40px] text-white leading-[1.2] max-w-[900px]">{study.title}</h1>
+        <h1 className="font-['Manrope'] font-normal text-[28px] md:text-[40px] text-white leading-[1.2] max-w-[900px] text-balance">{study.title}</h1>
         <div className="flex gap-[10px] items-center flex-wrap w-full pt-[8px]">
           {study.pills.map((pill) => (
             <div key={pill} className="border-[0.5px] border-[rgba(255,255,255,0.7)] border-solid flex items-center justify-center px-[10px] py-[5px] rounded-[100px] shrink-0">
@@ -64,11 +64,11 @@ export default function CaseStudy() {
       <section className="relative max-w-[1348px] mx-auto px-6 md:px-[82px] pb-[120px] flex flex-col gap-[80px]">
         <Reveal as="div" className="flex flex-col md:flex-row md:items-start md:justify-between gap-[24px]">
           <Eyebrow>The Brief</Eyebrow>
-          <p className="font-['Manrope'] font-normal text-[22px] md:text-[28px] text-[rgba(255,255,255,0.7)] leading-[1.4] max-w-[900px]">{study.brief}</p>
+          <p className="font-['Manrope'] font-normal text-[22px] md:text-[28px] text-[rgba(255,255,255,0.7)] leading-[1.4] max-w-[900px] text-pretty">{study.brief}</p>
         </Reveal>
         <Reveal as="div" className="flex flex-col md:flex-row md:items-start md:justify-between gap-[24px]">
           <Eyebrow>The Results</Eyebrow>
-          <p className="font-['Manrope'] font-normal text-[22px] md:text-[28px] text-white leading-[1.4] max-w-[900px]">{study.results}</p>
+          <p className="font-['Manrope'] font-normal text-[22px] md:text-[28px] text-white leading-[1.4] max-w-[900px] text-pretty">{study.results}</p>
         </Reveal>
       </section>
 
