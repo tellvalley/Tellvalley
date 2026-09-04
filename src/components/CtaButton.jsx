@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ChevronRight } from "./icons.jsx";
 
-export default function CtaButton({ href = "mailto:hello@tellvalley.agency", children, className = "", onClick }) {
+export default function CtaButton({ href = "mailto:hello@tellvalley.com", children, className = "", onClick }) {
   const isInternal = href.startsWith("/");
   const Comp = isInternal ? Link : "a";
   const linkProps = isInternal ? { to: href } : { href };

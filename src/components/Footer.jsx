@@ -75,12 +75,12 @@ export default function Footer() {
               <div className="content-stretch flex flex-col font-['Manrope'] font-normal gap-[10px] items-center relative shrink-0 text-[24px] text-white w-full">
                 <a
                   className="group flex flex-col justify-center relative shrink-0"
-                  href="mailto:hello@tellvalley.agency"
+                  href="mailto:hello@tellvalley.com"
                   target="_blank"
                   rel="noreferrer"
                 >
                   <p className="[text-underline-position:from-font] cursor-pointer decoration-from-font decoration-solid leading-[28.8px] underline transition-colors duration-300 group-hover:text-[color:var(--pricolor-orange,#ff5c22)]">
-                    hello@tellvalley.agency
+                    hello@tellvalley.com
                   </p>
                 </a>
                 <div className="flex flex-col justify-center relative shrink-0">
