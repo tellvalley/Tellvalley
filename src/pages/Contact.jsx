@@ -18,18 +18,33 @@ const SOCIALS = [
 const fieldClasses =
   "bg-transparent border border-[rgba(255,255,255,0.3)] rounded-[8px] px-[16px] py-[12px] font-['Manrope'] text-[14px] text-white placeholder:text-[rgba(255,255,255,0.4)] transition-colors duration-300 hover:border-[rgba(255,255,255,0.5)] focus:outline-none focus:border-[color:var(--pricolor-orange,#ff5c22)] w-full";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkjnzgkk";
+
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", service: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
   const update = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`New inquiry from ${form.name}${form.service ? ` — ${form.service}` : ""}`);
-    const body = encodeURIComponent(`${form.message}\n\nFrom: ${form.name} (${form.email})`);
-    window.location.href = `mailto:hello@tellvalley.agency?subject=${subject}&body=${body}`;
-    setSent(true);
+    setSubmitting(true);
+    setError(false);
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      setSent(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -71,11 +86,11 @@ export default function Contact() {
                   <span className="font-['Manrope'] font-semibold text-[color:var(--pricolor-orange,#ff5c22)]">/</span>
                   <span className="font-['Manrope'] font-extralight text-white">Thanks</span>
                 </div>
-                <p className="font-['Manrope'] font-normal text-[22px] text-white">Opening your email client now.</p>
+                <p className="font-['Manrope'] font-normal text-[22px] text-white">Message sent.</p>
                 <p className="font-['Manrope'] font-extralight text-[14px] text-[rgba(255,255,255,0.7)]">
-                  If nothing happened, write to us directly at{" "}
-                  <a href="mailto:hello@tellvalley.agency" className="text-[color:var(--pricolor-orange,#ff5c22)] underline">
-                    hello@tellvalley.agency
+                  We&rsquo;ll get back to you within a couple of business days. You can also reach us directly at{" "}
+                  <a href="mailto:hello@tellvalley.com" className="text-[color:var(--pricolor-orange,#ff5c22)] underline">
+                    hello@tellvalley.com
                   </a>
                   .
                 </p>
@@ -126,11 +141,17 @@ export default function Contact() {
                     className={`${fieldClasses} resize-none`}
                   />
                 </label>
+                {error && (
+                  <p className="font-['Manrope'] font-extralight text-[13px] text-[color:var(--pricolor-orange,#ff5c22)]">
+                    Something went wrong sending your message. Please try again, or email us directly at hello@tellvalley.com.
+                  </p>
+                )}
                 <button
                   type="submit"
-                  className="group inline-flex items-center gap-[10px] bg-white rounded-[100px] px-[24px] py-[14px] text-[14px] text-center whitespace-nowrap cursor-pointer w-fit transition-all duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_10px_30px_rgba(255,92,34,0.35)] active:scale-[0.97]"
+                  disabled={submitting}
+                  className="group inline-flex items-center gap-[10px] bg-white rounded-[100px] px-[24px] py-[14px] text-[14px] text-center whitespace-nowrap cursor-pointer w-fit transition-all duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_10px_30px_rgba(255,92,34,0.35)] active:scale-[0.97] disabled:opacity-60 disabled:pointer-events-none"
                 >
-                  <p className="font-['Manrope'] font-normal text-[#1c1c1c]">Send message</p>
+                  <p className="font-['Manrope'] font-normal text-[#1c1c1c]">{submitting ? "Sending…" : "Send message"}</p>
                   <ChevronRight className="size-[12px] text-[color:var(--pricolor-orange,#ff5c22)] transition-transform duration-300 ease-out group-hover:translate-x-[4px]" />
                 </button>
               </form>
@@ -144,8 +165,8 @@ export default function Contact() {
                 <span className="font-['Manrope'] font-semibold text-[color:var(--pricolor-orange,#ff5c22)]">/</span>
                 <span className="font-['Manrope'] font-extralight text-white">Get in touch</span>
               </div>
-              <a href="mailto:hello@tellvalley.agency" className="font-['Manrope'] text-[20px] text-white underline w-fit transition-colors duration-300 hover:text-[color:var(--pricolor-orange,#ff5c22)]">
-                hello@tellvalley.agency
+              <a href="mailto:hello@tellvalley.com" className="font-['Manrope'] text-[20px] text-white underline w-fit transition-colors duration-300 hover:text-[color:var(--pricolor-orange,#ff5c22)]">
+                hello@tellvalley.com
               </a>
               <p className="font-['Manrope'] text-[16px] text-white">+234-813-323-2542</p>
             </div>
