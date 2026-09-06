@@ -73,3 +73,17 @@ export function YoutubeIcon({ className }) {
     </svg>
   );
 }
+
+export function CursorArrow({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path
+        d="M4 2.5L4 18.2L8.1 14.4L10.6 20.8L13.4 19.6L10.9 13.3L17 13.3Z"
+        fill="currentColor"
+        stroke="white"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
