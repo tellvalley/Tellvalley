@@ -4,3 +4,8 @@ body {
   margin: 0;
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
+
+.cursor-follower-active,
+.cursor-follower-active * {
+  cursor: none !important;
+}
