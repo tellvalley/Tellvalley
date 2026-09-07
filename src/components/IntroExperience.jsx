@@ -1,10 +1,21 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "../lib/gsapSetup.js";
 import { ChevronRight } from "./icons.jsx";
 import { useVisitorName } from "../context/VisitorNameContext.jsx";
 import bgTexture from "../assets/landing/landing-img011.png";
 
-const LOAD_DURATION = 2.2;
+const COUNTER_DURATION = 4.2;
+
+// Faces of the spinning wordmark die, spaced 90deg apart (matches the
+// 3-face "code driven animation" rig: https://codepen.io/creativeocean/pen/ByBogvj)
+const DIE_WORDS = [
+  { text: "TELL", size: 38, ry: 270 },
+  { text: "VALLEY", size: 32, ry: 0 },
+  { text: "STUDIOS", size: 26, ry: 90 },
+];
+const DIE_WIDTH = 260;
+const DIE_HEIGHT = 54;
+const DIE_RADIUS = DIE_WIDTH / 2;
 
 /**
  * Full-screen intro gate: a loading count-up crossfades into a nickname
@@ -20,6 +31,9 @@ export default function IntroExperience() {
   const overlayRef = useRef(null);
   const loadingLayerRef = useRef(null);
   const nameLayerRef = useRef(null);
+  const dieWrapRef = useRef(null);
+  const cubeRef = useRef(null);
+  const taglineRef = useRef(null);
   const percentRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -34,18 +48,49 @@ export default function IntroExperience() {
     if (stage === "name") inputRef.current?.focus();
   }, [stage]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    if (!cubeRef.current) return undefined;
+
+    // Static 3D setup applies synchronously before first paint, so the
+    // faces never flash flat/unrotated on top of each other.
+    const faces = cubeRef.current.querySelectorAll(".die-face");
+    gsap.set(faces, {
+      z: DIE_RADIUS,
+      rotateY: (i) => DIE_WORDS[i].ry,
+      transformOrigin: `50% 50% -${DIE_RADIUS}px`,
+    });
+    gsap.set(dieWrapRef.current, { opacity: 0, y: 20 });
+    gsap.set(taglineRef.current.children, { opacity: 0, y: 14 });
+    gsap.set(percentRef.current, { opacity: 0, y: 8 });
+
+    // Continuous back-and-forth spin, running independently of the
+    // one-shot entrance/counter timeline below.
+    const dieTl = gsap.timeline({ repeat: -1, yoyo: true, defaults: { ease: "power1.inOut", duration: 2 } });
+    dieTl.fromTo(cubeRef.current, { rotateY: -90 }, { rotateY: 90 });
+
     const counter = { val: 0 };
     const tl = gsap.timeline();
 
-    tl.to(counter, {
-      val: 100,
-      duration: LOAD_DURATION,
-      ease: "power2.out",
-      onUpdate: () => {
-        if (percentRef.current) percentRef.current.textContent = `${Math.round(counter.val)}%`;
-      },
-    })
+    tl.to(dieWrapRef.current, { opacity: 1, y: 0, duration: 0.7, ease: "back.out(1.6)" })
+      .to(
+        taglineRef.current.children,
+        { opacity: 1, y: 0, duration: 0.45, stagger: 0.07, ease: "power3.out" },
+        "-=0.3"
+      )
+      .to(percentRef.current, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, "-=0.1")
+      .to(
+        counter,
+        {
+          val: 100,
+          duration: COUNTER_DURATION,
+          ease: "power1.inOut",
+          onUpdate: () => {
+            if (percentRef.current) percentRef.current.textContent = `${Math.round(counter.val)}%`;
+          },
+        },
+        "-=0.05"
+      )
+      .add(() => dieTl.pause())
       .to(loadingLayerRef.current, { opacity: 0, scale: 0.96, duration: 0.5, ease: "power2.inOut" }, "+=0.3")
       .fromTo(
         nameLayerRef.current,
@@ -54,7 +99,10 @@ export default function IntroExperience() {
         "<"
       );
 
-    return () => tl.kill();
+    return () => {
+      tl.kill();
+      dieTl.kill();
+    };
   }, []);
 
   function handleSubmit(e) {
@@ -72,16 +120,38 @@ export default function IntroExperience() {
   if (stage === "done") return null;
 
   return (
-    <div ref={overlayRef} className="fixed inset-0 z-[999] bg-[#1c1c1c] overflow-hidden">
+    <div ref={overlayRef} className="fixed inset-0 z-[999] bg-[#050505] overflow-hidden">
       <div aria-hidden className="absolute inset-0 pointer-events-none">
-        <img alt="" className="absolute inset-0 size-full object-cover opacity-2" src={bgTexture} />
-        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0.2)] to-[rgba(28,28,28,0)]" />
+        <img alt="" className="absolute inset-0 size-full object-cover opacity-[0.03]" src={bgTexture} />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "radial-gradient(120% 90% at 50% 32%, rgba(45,45,45,0.5) 0%, rgba(4,4,4,0.94) 62%, #000 100%)",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0.7)] via-transparent to-[rgba(0,0,0,0.55)]" />
       </div>
 
       {/* Loading screen */}
       <div ref={loadingLayerRef} className="absolute inset-0 flex flex-col items-center justify-center gap-[15px]">
-        <p className="font-['Manrope'] font-extralight text-[36px] text-white leading-none">Tellvalley</p>
-        <div className="flex gap-[10px] items-center text-[16px] whitespace-nowrap">
+        <div ref={dieWrapRef} style={{ perspective: 900 }}>
+          <div
+            ref={cubeRef}
+            style={{ width: DIE_WIDTH, height: DIE_HEIGHT, transformStyle: "preserve-3d" }}
+            className="relative"
+          >
+            {DIE_WORDS.map((word) => (
+              <div
+                key={word.text}
+                style={{ fontSize: word.size, backfaceVisibility: "hidden" }}
+                className="die-face absolute inset-0 flex items-center justify-center font-['Manrope'] font-bold text-white leading-none"
+              >
+                {word.text}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div ref={taglineRef} className="flex gap-[10px] items-center text-[16px] whitespace-nowrap">
           <span className="font-['Manrope'] font-semibold text-[color:var(--pricolor-orange,#ff5c22)]">/</span>
           <span className="font-['Manrope'] font-extralight text-white">Listen</span>
           <span className="font-['Manrope'] font-semibold text-[color:var(--pricolor-orange,#ff5c22)]">/</span>
