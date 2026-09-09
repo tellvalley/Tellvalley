@@ -7,6 +7,7 @@ import CtaButton from "./CtaButton.jsx";
 const LINKS = [
   { label: "Products", to: "/product" },
   { label: "Case Studies", to: "/case-studies" },
+  { label: "Community", to: "/community" },
   { label: "About Us", to: "/about" },
 ];
 
@@ -15,6 +16,7 @@ const MOBILE_LINKS = [
   { label: "Services", to: "/services" },
   { label: "Products", to: "/product" },
   { label: "Case Studies", to: "/case-studies" },
+  { label: "Community", to: "/community" },
   { label: "About Us", to: "/about" },
   { label: "Work with Us", to: "/contact" },
 ];

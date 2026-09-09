@@ -7,6 +7,7 @@ import Product from './pages/Product.jsx'
 import CaseStudies from './pages/CaseStudies.jsx'
 import CaseStudy from './pages/CaseStudy.jsx'
 import Contact from './pages/Contact.jsx'
+import Community from './pages/Community.jsx'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/product" element={<Product />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/case-studies/:slug" element={<CaseStudy />} />
+        <Route path="/community" element={<Community />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </>
