@@ -27,6 +27,9 @@ export default function IntroExperience() {
   const { setVisitorName } = useVisitorName();
   const [stage, setStage] = useState("loading"); // "loading" | "name" | "done"
   const [nameInput, setNameInput] = useState("");
+  // No cursor follower on touch devices, so there's no point asking for a
+  // nickname there — mobile just gets a plain Enter button.
+  const [canPickName, setCanPickName] = useState(() => window.matchMedia("(pointer: fine)").matches);
 
   const overlayRef = useRef(null);
   const loadingLayerRef = useRef(null);
@@ -47,6 +50,13 @@ export default function IntroExperience() {
   useEffect(() => {
     if (stage === "name") inputRef.current?.focus();
   }, [stage]);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(pointer: fine)");
+    const onChange = (e) => setCanPickName(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   useLayoutEffect(() => {
     if (!cubeRef.current) return undefined;
@@ -182,28 +192,34 @@ export default function IntroExperience() {
           onSubmit={handleSubmit}
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-[30px] w-[min(481px,90vw)] px-6"
         >
-          <div className="flex flex-col items-center gap-[20px] w-full">
+          {canPickName ? (
+            <div className="flex flex-col items-center gap-[20px] w-full">
+              <p className="font-['Manrope'] font-normal text-[16px] text-[#f3ede3] text-center leading-[28px]">
+                Welcome,
+                <br />
+                Tell us your nickname..
+              </p>
+              <input
+                ref={inputRef}
+                type="text"
+                value={nameInput}
+                onChange={(e) => setNameInput(e.target.value)}
+                placeholder="Enter Nickname.."
+                maxLength={24}
+                autoComplete="off"
+                autoCorrect="off"
+                spellCheck="false"
+                className="bg-[#1c1c1c] border border-white/10 rounded-[10px] w-full p-[14px] text-center font-['Manrope'] font-normal text-[12px] text-white placeholder:text-[rgba(103,98,94,0.7)] outline-none focus:border-[color:var(--pricolor-orange,#ff5c22)] transition-colors duration-300"
+              />
+            </div>
+          ) : (
             <p className="font-['Manrope'] font-normal text-[16px] text-[#f3ede3] text-center leading-[28px]">
-              Welcome,
-              <br />
-              Tell us your nickname..
+              Welcome to Tellvalley
             </p>
-            <input
-              ref={inputRef}
-              type="text"
-              value={nameInput}
-              onChange={(e) => setNameInput(e.target.value)}
-              placeholder="Enter Nickname.."
-              maxLength={24}
-              autoComplete="off"
-              autoCorrect="off"
-              spellCheck="false"
-              className="bg-[#1c1c1c] border border-white/10 rounded-[10px] w-full p-[14px] text-center font-['Manrope'] font-normal text-[12px] text-white placeholder:text-[rgba(103,98,94,0.7)] outline-none focus:border-[color:var(--pricolor-orange,#ff5c22)] transition-colors duration-300"
-            />
-          </div>
+          )}
           <button
             type="submit"
-            disabled={!nameInput.trim()}
+            disabled={canPickName && !nameInput.trim()}
             className="group inline-flex items-center gap-[10px] bg-white rounded-[100px] px-[12px] py-[6px] text-[12px] text-center whitespace-nowrap cursor-pointer transition-all duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_10px_30px_rgba(255,92,34,0.35)] active:scale-[0.97] disabled:opacity-40 disabled:pointer-events-none"
           >
             <p className="font-['Manrope'] font-normal text-[#1c1c1c]">Enter Valley</p>
