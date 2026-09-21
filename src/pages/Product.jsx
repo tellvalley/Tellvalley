@@ -15,7 +15,7 @@ const PRODUCTS = [
 export default function Product() {
   return (
     <div className="bg-[#1c1c1c] relative w-full overflow-x-clip">
-      <div className="absolute -translate-x-1/2 h-[700px] left-1/2 top-0 w-[1536px] max-w-none pointer-events-none">
+      <div className="absolute inset-x-0 top-0 h-[700px] pointer-events-none">
         <img alt="" className="absolute inset-0 max-w-none object-cover opacity-2 size-full" src={img011} />
         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0.2)] to-[rgba(28,28,28,0)]" />
       </div>
