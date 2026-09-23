@@ -8,7 +8,8 @@ import img011 from "../assets/landing/landing-img011.png";
 // Opens the Tally form as a popup via the widget script loaded in
 // index.html (https://tally.so/widgets/embed.js), which watches for
 // clicks on links whose href matches this #tally-open=... pattern.
-const TALLY_JOIN_HREF = "#tally-open=QKZW2A&tally-emoji-text=👋&tally-emoji-animation=wave";
+const TALLY_JOIN_HREF =
+  "#tally-open=QKZW2A&tally-overlay=1&tally-emoji-text=👋&tally-emoji-animation=wave&tally-auto-close=2000&tally-form-events-forwarding=1";
 
 const BENEFITS = [
   {
