@@ -5,11 +5,10 @@ import Accordion from "../components/Accordion.jsx";
 import { ChevronRight, ArrowUpRight, ClockIcon } from "../components/icons.jsx";
 import img011 from "../assets/landing/landing-img011.png";
 
-// Paste your Tally form's URL here once it's created, e.g.
-// "https://tally.so/r/xxxxxx". Configure the redirect-on-submit to your
-// WhatsApp community invite link inside Tally itself. Leave empty and the
-// "Join the Valley" button falls back to a mailto link.
-const TALLY_FORM_URL = "";
+// Opens the Tally form as a popup via the widget script loaded in
+// index.html (https://tally.so/widgets/embed.js), which watches for
+// clicks on links whose href matches this #tally-open=... pattern.
+const TALLY_JOIN_HREF = "#tally-open=QKZW2A&tally-emoji-text=👋&tally-emoji-animation=wave";
 
 const BENEFITS = [
   {
@@ -119,7 +118,7 @@ export default function Community() {
         </p>
         <div className="pt-[14px]">
           <a
-            href="#join"
+            href={TALLY_JOIN_HREF}
             className="inline-flex items-center justify-center bg-white rounded-[100px] px-[26px] py-[10px] text-[12px] text-center whitespace-nowrap cursor-pointer transition-all duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_10px_30px_rgba(255,92,34,0.35)] active:scale-[0.97]"
           >
             <span className="font-['Manrope'] font-normal text-[#1c1c1c]">Enter the Valley</span>
@@ -166,9 +165,7 @@ export default function Community() {
               <span className="text-[#1c1c1c]"> Free Access</span>
             </p>
             <a
-              href={TALLY_FORM_URL || "mailto:hello@tellvalley.com"}
-              target={TALLY_FORM_URL ? "_blank" : undefined}
-              rel={TALLY_FORM_URL ? "noreferrer" : undefined}
+              href={TALLY_JOIN_HREF}
               className="group inline-flex items-center gap-[10px] bg-[#ff4d00] rounded-[10px] px-[40px] md:px-[111px] py-[20px] md:py-[32px] cursor-pointer transition-all duration-300 ease-out hover:scale-[1.03] active:scale-[0.98]"
             >
               <span className="font-['Manrope'] font-semibold text-[18px] md:text-[20px] text-white">Join the Valley</span>
