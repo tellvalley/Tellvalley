@@ -124,7 +124,7 @@ export default function Community() {
             href={TALLY_JOIN_HREF}
             className="inline-flex items-center justify-center bg-white rounded-[100px] px-[26px] py-[10px] text-[12px] text-center whitespace-nowrap cursor-pointer transition-all duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_10px_30px_rgba(255,92,34,0.35)] active:scale-[0.97]"
           >
-            <span className="font-['Manrope'] font-normal text-[#1c1c1c]">Enter the Valley</span>
+            <span className="font-['Manrope'] font-normal text-[#1c1c1c]">Join the Valley</span>
           </a>
         </div>
       </Reveal>
