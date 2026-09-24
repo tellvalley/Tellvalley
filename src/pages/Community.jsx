@@ -10,6 +10,8 @@ import img011 from "../assets/landing/landing-img011.png";
 // clicks on links whose href matches this #tally-open=... pattern.
 const TALLY_JOIN_HREF =
   "#tally-open=QKZW2A&tally-overlay=1&tally-emoji-text=👋&tally-emoji-animation=wave&tally-auto-close=2000&tally-form-events-forwarding=1";
+const TALLY_MENTOR_HREF =
+  "#tally-open=RGp4Pd&tally-overlay=1&tally-emoji-text=🧨&tally-emoji-animation=tada&tally-auto-close=2000&tally-form-events-forwarding=1";
 
 const BENEFITS = [
   {
@@ -174,7 +176,7 @@ export default function Community() {
             </a>
             <p className="font-['Manrope'] font-medium text-[16px] md:text-[20px] pt-[24px] text-balance">
               <span className="text-[#1c1c1c]">Want to lead a session or guide others? </span>
-              <a href="/contact" className="text-[#ff4d00] hover:underline">
+              <a href={TALLY_MENTOR_HREF} className="text-[#ff4d00] hover:underline">
                 Apply as a Mentor →
               </a>
             </p>
