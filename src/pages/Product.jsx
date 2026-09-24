@@ -7,7 +7,7 @@ import pixelPool from "../assets/product/product-pixelpool.png";
 import gestureCanvas from "../assets/product/product-gesturecanvas.png";
 
 const PRODUCTS = [
-  { img: scndly, name: "Scndly", tagline: "Create unlimited QR codes for free." },
+  { img: scndly, name: "Scndly", tagline: "Create unlimited QR codes for free.", link: "https://scndly.tellvalley.com" },
   { img: pixelPool, name: "Pixel Pool", tagline: "Designers vs. Clients Game", link: "https://pool.tellvalley.com" },
   { img: gestureCanvas, name: "Gesture Canvas", tagline: "A Figma-like design editor that uses gestures" },
 ];
