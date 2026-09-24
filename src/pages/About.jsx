@@ -142,8 +142,8 @@ export default function About() {
       <section className="relative max-w-[1348px] mx-auto px-6 md:px-[82px] pb-[160px]">
         <Reveal as="div" stagger={0.1} className="flex flex-wrap gap-[29px] items-start justify-center">
           {TEAM.map((member) => (
-            <div key={member.name} className="group flex flex-col gap-[13px] items-start w-[280px] md:w-[430px]">
-              <div className="h-[280px] md:h-[442px] relative rounded-[20px] shrink-0 w-full overflow-hidden bg-[#d9d9d9] transition-shadow duration-500 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div key={member.name} className="group flex flex-col gap-[13px] items-start w-[280px] md:w-[calc((100%-58px)/3)]">
+              <div className="h-[280px] md:h-auto md:aspect-[430/442] relative rounded-[20px] shrink-0 w-full overflow-hidden bg-[#d9d9d9] transition-shadow duration-500 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                 <img
                   alt={member.name}
                   className="absolute inset-0 max-w-none object-cover size-full transition-transform duration-500 ease-out group-hover:scale-[1.08]"
