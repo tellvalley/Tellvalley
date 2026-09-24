@@ -167,10 +167,10 @@ export default function Community() {
             </p>
             <a
               href={TALLY_JOIN_HREF}
-              className="group inline-flex items-center gap-[10px] bg-[#ff4d00] rounded-[10px] px-[40px] md:px-[111px] py-[20px] md:py-[32px] cursor-pointer transition-all duration-300 ease-out hover:scale-[1.03] active:scale-[0.98]"
+              className="group inline-flex items-center gap-[10px] bg-[#1c1c1c] rounded-[10px] px-[40px] md:px-[111px] py-[20px] md:py-[32px] cursor-pointer transition-all duration-300 ease-out hover:bg-[color:var(--pricolor-orange,#ff5c22)] hover:scale-[1.03] active:scale-[0.98]"
             >
               <span className="font-['Manrope'] font-semibold text-[18px] md:text-[20px] text-white">Join the Valley</span>
-              <ChevronRight className="size-[16px] text-[color:var(--pricolor-orange,#ff5c22)] transition-transform duration-300 ease-out group-hover:translate-x-[4px]" />
+              <ChevronRight className="size-[16px] text-[color:var(--pricolor-orange,#ff5c22)] transition-all duration-300 ease-out group-hover:translate-x-[4px] group-hover:text-white" />
             </a>
             <p className="font-['Manrope'] font-medium text-[16px] md:text-[20px] pt-[24px] text-balance">
               <span className="text-[#1c1c1c]">Want to lead a session or guide others? </span>
