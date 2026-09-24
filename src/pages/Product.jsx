@@ -8,7 +8,7 @@ import gestureCanvas from "../assets/product/product-gesturecanvas.png";
 
 const PRODUCTS = [
   { img: scndly, name: "Scndly", tagline: "Create unlimited QR codes for free." },
-  { img: pixelPool, name: "Pixel Pool", tagline: "Designers vs. Clients Game" },
+  { img: pixelPool, name: "Pixel Pool", tagline: "Designers vs. Clients Game", link: "https://pool.tellvalley.com" },
   { img: gestureCanvas, name: "Gesture Canvas", tagline: "A Figma-like design editor that uses gestures" },
 ];
 
@@ -42,24 +42,29 @@ export default function Product() {
       {/* Product cards */}
       <section className="relative max-w-[1348px] mx-auto px-6 md:px-[82px] pb-[160px]">
         <Reveal as="div" stagger={0.12} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[38px] max-w-[1018px] mx-auto">
-          {PRODUCTS.map((p) => (
-            <div
-              key={p.name}
-              className="group flex flex-col gap-[24px] items-center rounded-[16px] border border-white/10 p-[10px] transition-all duration-300 ease-out hover:-translate-y-[6px] hover:border-[color:var(--pricolor-orange,#ff5c22)]/60 hover:shadow-[0_20px_40px_rgba(255,92,34,0.2)]"
-            >
-              <div className="w-full h-[183px] rounded-[8px] overflow-hidden">
-                <img
-                  alt={p.name}
-                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08]"
-                  src={p.img}
-                />
-              </div>
-              <div className="flex flex-col items-center gap-[4px] pb-[10px]">
-                <p className="font-['Manrope'] font-normal text-[16px] text-white transition-colors duration-300 group-hover:text-[color:var(--pricolor-orange,#ff5c22)]">{p.name}</p>
-                <p className="font-['Manrope'] font-extralight text-[12px] text-[rgba(255,255,255,0.7)]">{p.tagline}</p>
-              </div>
-            </div>
-          ))}
+          {PRODUCTS.map((p) => {
+            const Comp = p.link ? "a" : "div";
+            const linkProps = p.link ? { href: p.link, target: "_blank", rel: "noreferrer" } : {};
+            return (
+              <Comp
+                key={p.name}
+                {...linkProps}
+                className={`group flex flex-col gap-[24px] items-center rounded-[16px] border border-white/10 p-[10px] transition-all duration-300 ease-out hover:-translate-y-[6px] hover:border-[color:var(--pricolor-orange,#ff5c22)]/60 hover:shadow-[0_20px_40px_rgba(255,92,34,0.2)] ${p.link ? "cursor-pointer" : ""}`}
+              >
+                <div className="w-full h-[183px] rounded-[8px] overflow-hidden">
+                  <img
+                    alt={p.name}
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08]"
+                    src={p.img}
+                  />
+                </div>
+                <div className="flex flex-col items-center gap-[4px] pb-[10px]">
+                  <p className="font-['Manrope'] font-normal text-[16px] text-white transition-colors duration-300 group-hover:text-[color:var(--pricolor-orange,#ff5c22)]">{p.name}</p>
+                  <p className="font-['Manrope'] font-extralight text-[12px] text-[rgba(255,255,255,0.7)]">{p.tagline}</p>
+                </div>
+              </Comp>
+            );
+          })}
         </Reveal>
       </section>
 
