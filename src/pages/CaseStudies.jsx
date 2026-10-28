@@ -5,7 +5,7 @@ import Reveal from "../components/Reveal.jsx";
 import CaseStudyCard from "../components/CaseStudyCard.jsx";
 import Select from "../components/Select.jsx";
 import { CASE_STUDIES } from "../data/caseStudies.js";
-import img011 from "../assets/services/services-img011.png";
+import img011 from "../assets/services/services-img011.webp";
 
 const TYPES = ["Show all", ...Array.from(new Set(CASE_STUDIES.map((s) => s.type)))];
 const EXPERTISE = ["Show all", ...Array.from(new Set(CASE_STUDIES.flatMap((s) => s.pills)))];

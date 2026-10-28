@@ -3,18 +3,18 @@ import Footer from "../components/Footer.jsx";
 import Reveal from "../components/Reveal.jsx";
 import Counter from "../components/Counter.jsx";
 import Marquee from "../components/Marquee.jsx";
-import img011 from "../assets/about/about-img011.png";
-import imgRectangle6 from "../assets/about/about-imgRectangle6.png";
-import imgRectangle7 from "../assets/about/about-imgRectangle7.png";
-import imgRectangle10 from "../assets/about/about-imgRectangle10.png";
-import imgRectangle11 from "../assets/about/about-imgRectangle11.png";
-import imgRectangle12 from "../assets/about/about-imgRectangle12.png";
-import imgRectangle2 from "../assets/about/about-imgRectangle2.png";
-import imgRectangle3 from "../assets/about/about-imgRectangle3.png";
-import imgRectangle4 from "../assets/about/about-imgRectangle4.png";
-import imgRectangle5 from "../assets/about/about-imgRectangle5.png";
-import imgRectangle8 from "../assets/about/about-imgRectangle8.png";
-import imgRectangle9 from "../assets/about/about-imgRectangle9.png";
+import img011 from "../assets/services/services-img011.webp";
+import imgRectangle6 from "../assets/about/about-imgRectangle6.webp";
+import imgRectangle7 from "../assets/about/about-imgRectangle7.webp";
+import imgRectangle10 from "../assets/about/about-imgRectangle10.webp";
+import imgRectangle11 from "../assets/about/about-imgRectangle11.webp";
+import imgRectangle12 from "../assets/about/about-imgRectangle12.webp";
+import imgRectangle2 from "../assets/about/about-imgRectangle2.webp";
+import imgRectangle3 from "../assets/about/about-imgRectangle3.webp";
+import imgRectangle4 from "../assets/about/about-imgRectangle4.webp";
+import imgRectangle5 from "../assets/about/about-imgRectangle5.webp";
+import imgRectangle8 from "../assets/about/about-imgRectangle8.webp";
+import imgRectangle9 from "../assets/about/about-imgRectangle9.webp";
 import imgSonvisageLogo11 from "../assets/about/about-imgSonvisageLogo11.svg";
 import imgGroup from "../assets/about/about-imgGroup.svg";
 import imgGroup1 from "../assets/about/about-imgGroup1.svg";
@@ -145,6 +145,8 @@ export default function About() {
             <div key={member.name} className="group flex flex-col gap-[13px] items-start w-[280px] md:w-[calc((100%-58px)/3)]">
               <div className="h-[280px] md:h-auto md:aspect-[430/442] relative rounded-[20px] shrink-0 w-full overflow-hidden bg-[#d9d9d9] transition-shadow duration-500 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                 <img
+                  loading="lazy"
+                  decoding="async"
                   alt={member.name}
                   className="absolute inset-0 max-w-none object-cover size-full transition-transform duration-500 ease-out group-hover:scale-[1.08]"
                   src={member.img}
@@ -247,6 +249,8 @@ export default function About() {
           {GALLERY.map((src, i) => (
             <div key={i} className="group h-[220px] md:h-[280px] relative rounded-[20px] overflow-hidden">
               <img
+                loading="lazy"
+                decoding="async"
                 alt=""
                 className="absolute inset-0 max-w-none object-cover pointer-events-none size-full transition-transform duration-500 ease-out group-hover:scale-[1.1]"
                 src={src}

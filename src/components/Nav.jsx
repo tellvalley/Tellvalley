@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import Reveal from "./Reveal.jsx";
 import ServicesMenu from "./ServicesMenu.jsx";
 import CtaButton from "./CtaButton.jsx";
+import { lockScroll, unlockScroll } from "../lib/smoothScroll.js";
 
 const LINKS = [
   { label: "Products", to: "/product" },
@@ -30,10 +31,9 @@ export default function Nav() {
   }, [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    if (!open) return undefined;
+    lockScroll();
+    return unlockScroll;
   }, [open]);
 
   return (
@@ -107,7 +107,7 @@ export default function Nav() {
         open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       }`}
     >
-      <nav className="flex flex-col gap-[4px] px-6 pt-[110px] pb-[40px] overflow-y-auto">
+      <nav data-lenis-prevent className="flex flex-col gap-[4px] px-6 pt-[110px] pb-[40px] overflow-y-auto">
         {MOBILE_LINKS.map((link, i) => (
           <Link
             key={link.label}

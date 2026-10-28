@@ -5,7 +5,7 @@ import Reveal from "../components/Reveal.jsx";
 import CaseStudyCard from "../components/CaseStudyCard.jsx";
 import { ChevronRight } from "../components/icons.jsx";
 import { CASE_STUDIES, getCaseStudy } from "../data/caseStudies.js";
-import img011 from "../assets/services/services-img011.png";
+import img011 from "../assets/services/services-img011.webp";
 
 function Eyebrow({ children }) {
   return (
@@ -79,6 +79,8 @@ export default function CaseStudy() {
             {study.gallery.map((src, i) => (
               <div key={i} className="group h-[240px] md:h-[320px] relative rounded-[20px] overflow-hidden">
                 <img
+                  loading="lazy"
+                  decoding="async"
                   alt=""
                   className="absolute inset-0 max-w-none object-cover size-full transition-transform duration-500 ease-out group-hover:scale-[1.08]"
                   src={src}

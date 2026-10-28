@@ -2,7 +2,7 @@ import Nav from "../components/Nav.jsx";
 import Footer from "../components/Footer.jsx";
 import Reveal from "../components/Reveal.jsx";
 import { SERVICES } from "../data/services.js";
-import img011 from "../assets/services/services-img011.png";
+import img011 from "../assets/services/services-img011.webp";
 
 const WHAT_WE_DO = [
   { title: "Agency", items: ["Product Design", "Website Design & Development", "Consultancy", "Media Production", "Documentary Production"] },

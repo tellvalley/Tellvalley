@@ -5,7 +5,7 @@ import Marquee from "../components/Marquee.jsx";
 import CaseStudyCard from "../components/CaseStudyCard.jsx";
 import { ArrowUpRight } from "../components/icons.jsx";
 import { CASE_STUDIES } from "../data/caseStudies.js";
-import img011 from "../assets/landing/landing-img011.png";
+import img011 from "../assets/landing/landing-img011.webp";
 import imgGroup from "../assets/landing/landing-imgGroup.svg";
 import imgGroup1 from "../assets/landing/landing-imgGroup1.svg";
 import imgVector from "../assets/landing/landing-imgVector.svg";
