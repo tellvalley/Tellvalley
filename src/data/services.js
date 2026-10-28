@@ -1,8 +1,8 @@
-import previewProductDesign from "../assets/landing/landing-imgRectangle1.png";
-import previewWebsite from "../assets/landing/landing-imgRectangle2.png";
-import previewTechEducation from "../assets/about/about-imgRectangle8.png";
-import previewMediaProduction from "../assets/landing/landing-imgRectangle3.png";
-import previewConsultancy from "../assets/landing/landing-imgRectangle4.png";
+import previewProductDesign from "../assets/landing/landing-imgRectangle1.webp";
+import previewWebsite from "../assets/landing/landing-imgRectangle2.webp";
+import previewTechEducation from "../assets/about/about-imgRectangle8.webp";
+import previewMediaProduction from "../assets/landing/landing-imgRectangle3.webp";
+import previewConsultancy from "../assets/landing/landing-imgRectangle4.webp";
 
 export const SERVICES = [
   {

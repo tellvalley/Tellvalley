@@ -5,6 +5,8 @@ export default function CaseStudyCard({ study }) {
     <Link to={`/case-studies/${study.slug}`} className="group flex flex-col gap-[24px] items-start w-full">
       <div className="h-[280px] md:h-[356px] relative rounded-[20px] shrink-0 w-full overflow-hidden bg-[#d9d9d9] transition-shadow duration-500 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         <img
+          loading="lazy"
+          decoding="async"
           alt={study.tag}
           className="absolute inset-0 max-w-none object-cover rounded-[20px] size-full transition-transform duration-500 ease-out group-hover:scale-[1.08]"
           src={study.cover}

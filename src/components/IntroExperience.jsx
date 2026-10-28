@@ -1,8 +1,9 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "../lib/gsapSetup.js";
+import { lockScroll, unlockScroll } from "../lib/smoothScroll.js";
 import { ChevronRight } from "./icons.jsx";
 import { useVisitorName } from "../context/VisitorNameContext.jsx";
-import bgTexture from "../assets/landing/landing-img011.png";
+import bgTexture from "../assets/landing/landing-img011.webp";
 
 const COUNTER_DURATION = 4.2;
 
@@ -41,10 +42,9 @@ export default function IntroExperience() {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    document.body.style.overflow = stage === "done" ? "" : "hidden";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    if (stage === "done") return undefined;
+    lockScroll();
+    return unlockScroll;
   }, [stage]);
 
   useEffect(() => {

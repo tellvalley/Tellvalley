@@ -3,7 +3,7 @@ import Footer from "../components/Footer.jsx";
 import Reveal from "../components/Reveal.jsx";
 import Accordion from "../components/Accordion.jsx";
 import { ChevronRight, ArrowUpRight, ClockIcon } from "../components/icons.jsx";
-import img011 from "../assets/landing/landing-img011.png";
+import img011 from "../assets/landing/landing-img011.webp";
 
 // Opens the Tally form as a popup via the widget script loaded in
 // index.html (https://tally.so/widgets/embed.js), which watches for

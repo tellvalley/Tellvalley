@@ -53,6 +53,8 @@ export default function ServicesMenu() {
           <div className="flex-1 relative rounded-[16px] overflow-hidden min-h-[240px] bg-black">
             {SERVICES.map((s, i) => (
               <img
+                loading="lazy"
+                decoding="async"
                 key={s.slug}
                 src={s.preview}
                 alt=""

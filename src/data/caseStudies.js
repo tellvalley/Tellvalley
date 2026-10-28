@@ -1,14 +1,14 @@
-import imgCios from "../assets/landing/landing-imgRectangle1.png";
-import imgCloudolle from "../assets/landing/landing-imgRectangle2.png";
-import imgReaching from "../assets/landing/landing-imgRectangle3.png";
-import imgCareBridge from "../assets/landing/landing-imgRectangle4.png";
+import imgCios from "../assets/landing/landing-imgRectangle1.webp";
+import imgCloudolle from "../assets/landing/landing-imgRectangle2.webp";
+import imgReaching from "../assets/landing/landing-imgRectangle3.webp";
+import imgCareBridge from "../assets/landing/landing-imgRectangle4.webp";
 
-import galleryReaching1 from "../assets/about/about-imgRectangle8.png";
-import galleryReaching2 from "../assets/about/about-imgRectangle9.png";
-import galleryReaching3 from "../assets/about/about-imgRectangle5.png";
-import galleryCareBridge1 from "../assets/about/about-imgRectangle2.png";
-import galleryCareBridge2 from "../assets/about/about-imgRectangle3.png";
-import galleryCareBridge3 from "../assets/about/about-imgRectangle4.png";
+import galleryReaching1 from "../assets/about/about-imgRectangle8.webp";
+import galleryReaching2 from "../assets/about/about-imgRectangle9.webp";
+import galleryReaching3 from "../assets/about/about-imgRectangle5.webp";
+import galleryCareBridge1 from "../assets/about/about-imgRectangle2.webp";
+import galleryCareBridge2 from "../assets/about/about-imgRectangle3.webp";
+import galleryCareBridge3 from "../assets/about/about-imgRectangle4.webp";
 
 export const CASE_STUDIES = [
   {

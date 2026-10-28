@@ -1,10 +1,10 @@
 import Nav from "../components/Nav.jsx";
 import Footer from "../components/Footer.jsx";
 import Reveal from "../components/Reveal.jsx";
-import img011 from "../assets/services/services-img011.png";
-import scndly from "../assets/product/product-scndly.png";
-import pixelPool from "../assets/product/product-pixelpool.png";
-import gestureCanvas from "../assets/product/product-gesturecanvas.png";
+import img011 from "../assets/services/services-img011.webp";
+import scndly from "../assets/product/product-scndly.webp";
+import pixelPool from "../assets/product/product-pixelpool.webp";
+import gestureCanvas from "../assets/product/product-gesturecanvas.webp";
 
 const PRODUCTS = [
   { img: scndly, name: "Scndly", tagline: "Create unlimited QR codes for free.", link: "https://scndly.tellvalley.com" },
@@ -53,6 +53,8 @@ export default function Product() {
               >
                 <div className="w-full h-[183px] rounded-[8px] overflow-hidden">
                   <img
+                    loading="lazy"
+                    decoding="async"
                     alt={p.name}
                     className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08]"
                     src={p.img}

@@ -5,7 +5,7 @@ import Reveal from "../components/Reveal.jsx";
 import Select from "../components/Select.jsx";
 import { ChevronRight, InstagramIcon, TikTokIcon, XIcon, LinkedInIcon, YoutubeIcon } from "../components/icons.jsx";
 import { SERVICES } from "../data/services.js";
-import img011 from "../assets/services/services-img011.png";
+import img011 from "../assets/services/services-img011.webp";
 
 const SOCIALS = [
   ["Instagram", "https://www.instagram.com/tellvalleystudios/", InstagramIcon],
